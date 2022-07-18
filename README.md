@@ -18,7 +18,7 @@ Application will be Frontend only using-
 
 - React
 - CSS
-- Bootstrap
+- Material UI
 
 #### Hosting
 
