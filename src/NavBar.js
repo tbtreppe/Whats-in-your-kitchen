@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -33,35 +33,26 @@ export default function ClippedDrawer() {
           },
         }}
       >
-        <Toolbar />
         <Divider />
-        <Box sx={{ overflow: "auto" }}></Box>
+
         <List>
           <ListItem disablePadding>
             <ListItemButton>
-              <Link href={{ pathname: "/SearchIngredient" }}>
-                Search By Ingredient
-              </Link>
+              <Link to="/SearchIngredient">Search By Ingredient</Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemText primary="Search By Equipment" />
+              <Link to="/SearchEquipment">Search By Equipment</Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemText primary="Search By Cuisine" />
+              <Link to="/SearchCuisine">Search By Cuisine</Link>
             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-      >
-        <Toolbar />
-      </Box>
     </Box>
   );
 }

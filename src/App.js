@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>What's in your Kitchen?</h1>
         <div>
           <BrowserRouter>
             <NavBar />
@@ -20,13 +19,13 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route exact path="Search By Ingredient">
+              <Route exact path="/SearchIngredient">
                 <SearchIngredient />
               </Route>
-              <Route exact path="Search By Equipment">
+              <Route exact path="/SearchEquipment">
                 <SearchEquipment />
               </Route>
-              <Route exact path="Search By Cuisine">
+              <Route exact path="/SearchCuisine">
                 <SearchCuisine />
               </Route>
             </Switch>
