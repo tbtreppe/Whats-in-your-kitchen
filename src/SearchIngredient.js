@@ -16,11 +16,15 @@ function GetRecipe() {
   }, [query]);
 
   const SearchIngredient = async () => {
-    const response = await axios.get(
-      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_API_KEY}`
-    );
-    const data = await response.json();
-    setRecipes(data.response);
+    try {
+      let response = await axios.get(
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=&ingredients=butter`
+      );
+      const data = await response.json();
+      setRecipes(data.response);
+    } catch (err) {
+      console.log(err, "logged");
+    }
   };
   const updateSearch = (e) => {
     setSearch(e.target.value);
