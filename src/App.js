@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import Search from "./SearchForm";
 import SearchIngredient from "./SearchIngredient";
 import SearchEquipment from "./SearchEquipment";
 import SearchCuisine from "./SearchCuisine";

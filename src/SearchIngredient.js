@@ -20,8 +20,8 @@ function GetRecipe() {
       let response = await axios.get(
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=&ingredients=butter`
       );
-      const data = await response.json();
-      setRecipes(data.response);
+      //   const data = await response.json();
+      //   setRecipes(data.response);
     } catch (err) {
       console.log(err, "logged");
     }
@@ -31,7 +31,7 @@ function GetRecipe() {
   };
   const getSearch = (e) => {
     e.preventDefault();
-    setQuery(search);
+    setQuery(search); //query?
     setSearch("");
   };
   return (
@@ -46,10 +46,10 @@ function GetRecipe() {
             type="text"
             name="name"
             onChange={updateSearch}
-            value={search}
+            value={search} //query?
           />
         </div>
-        <Button variant="contained">Search</Button>
+        <button onClick={() => SearchIngredient()}>Search</button>
       </form>
       <RecipeList recipes={recipes} />
     </div>
@@ -57,3 +57,5 @@ function GetRecipe() {
 }
 
 export default GetRecipe;
+
+// `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=&ingredients=butter`
