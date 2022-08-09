@@ -9,7 +9,7 @@ import RecipeList from "./RecipeList";
 function GetRecipe() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("Butter");
+  const [query, setQuery] = useState([]);
 
   useEffect(() => {
     SearchIngredient();
@@ -18,10 +18,11 @@ function GetRecipe() {
   const SearchIngredient = async () => {
     try {
       let response = await axios.get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=&ingredients=butter`
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=${query}`
       );
-      //   const data = await response.json();
-      //   setRecipes(data.response);
+      console.log(response);
+      const data = await response.json();
+      setRecipes(data.response);
     } catch (err) {
       console.log(err, "logged");
     }
@@ -58,4 +59,4 @@ function GetRecipe() {
 
 export default GetRecipe;
 
-// `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=&ingredients=butter`
+// `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=butter`
