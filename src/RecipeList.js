@@ -6,13 +6,13 @@ function RecipeList(props) {
 
   return (
     <div>
-      {recipes.map((recipes) => (
+      {recipes.map((recipe) => (
         <Recipe
-          key={recipes.recipe.label}
-          title={recipes.recipe.label}
-          image={recipes.recipe.image}
-          ingredients={recipes.recipe.ingredients}
-          directions={recipes.recipe.url}
+          key={recipe.label}
+          title={recipe.label}
+          image={recipe.image}
+          ingredients={recipe.ingredients}
+          directions={recipe.url}
         />
       ))}
     </div>

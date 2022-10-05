@@ -52,7 +52,13 @@ function GetRecipe() {
         </div>
         <button onClick={() => SearchIngredient()}>Search</button>
       </form>
-      <RecipeList recipes={recipes} />
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe.id}>
+            <RecipeList recipe={recipe} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
