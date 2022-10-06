@@ -8,8 +8,8 @@ function RecipeList(props) {
     <div>
       {recipes.map((recipe) => (
         <Recipe
-          key={recipe.label}
-          title={recipe.label}
+          key={recipe.id}
+          title={recipe.title}
           image={recipe.image}
           ingredients={recipe.ingredients}
           directions={recipe.url}

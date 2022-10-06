@@ -9,35 +9,39 @@ import RecipeList from "./RecipeList";
 function GetRecipe() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState([]);
+  // const [query, setQuery] = useState([]);
 
-  useEffect(() => {
-    SearchIngredient();
-  }, [query]);
+  // useEffect(() => {
+  //   SearchIngredient();
+  // }, [query]);
 
   const SearchIngredient = async () => {
     try {
-      let response = await axios.get(
-        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=${query}`
+      const response = await axios.get(
+        `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=${search}`
       );
-      console.log(response);
-      const data = await response.json();
-      setRecipes(data.response);
+      const data = response.data;
+      console.log(data)
+      setRecipes(data);
     } catch (err) {
       console.log(err, "logged");
     }
   };
+
   const updateSearch = (e) => {
     setSearch(e.target.value);
   };
-  const getSearch = (e) => {
+
+  const doSearch = (e) => {
     e.preventDefault();
-    setQuery(search); //query?
+    SearchIngredient();
+    // setQuery(search); //query?
     setSearch("");
   };
+
   return (
     <div>
-      <form onSubmit={getSearch}>
+      <form onSubmit={doSearch}>
         <div>
           <label htmlFor="name">Search for item</label>
           <TextField
@@ -50,15 +54,9 @@ function GetRecipe() {
             value={search} //query?
           />
         </div>
-        <button onClick={() => SearchIngredient()}>Search</button>
+        <button onClick={doSearch}>Search</button>
       </form>
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <RecipeList recipe={recipe} />
-          </li>
-        ))}
-      </ul>
+      <RecipeList recipes={recipes} />
     </div>
   );
 }
