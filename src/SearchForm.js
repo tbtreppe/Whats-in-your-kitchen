@@ -1,3 +1,44 @@
+// import axios from "axios";
+// import React, { useState } from "react";
+// import { Link } from "react-router-dom";
+// import Recipe from "./Recipe.js";
+
+// function SearchItem() {
+//   const [query, setQuery] = useState("");
+//   const [recipes, setRecipes] = useState([]);
+
+//   const Search = async () => {
+//     let result = await axios.get(
+//       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&query=${query}`
+//     );
+//     setRecipes(result.data.hits);
+//     console.log(result.data.hits);
+//   };
+//   const submitHandler = (e) => {
+//     e.preventDefault();
+//     Search();
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={submitHandler}>
+//         <input
+//           type="text"
+//           value={query}
+//           onChange={(e) => setQuery(e.target.value)}
+//         />
+//       </form>
+
+//       {recipes !== [] &&
+//         recipes.map((recipe) => {
+//           return <Recipe />;
+//         })}
+//     </div>
+//   );
+// }
+
+// export default SearchItem;
+
 // import { React, useState, useEffect } from "react";
 // import axios from "axios";
 

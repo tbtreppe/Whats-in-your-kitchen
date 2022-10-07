@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 //import Searched from "./SearchForm";
-import RecipeResult from "./RecipeResult";
 import axios from "axios";
 import RecipeList from "./RecipeList";
 
@@ -21,7 +20,7 @@ function GetRecipe() {
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=${search}`
       );
       const data = response.data;
-      console.log(data)
+      console.log(data);
       setRecipes(data);
     } catch (err) {
       console.log(err, "logged");
