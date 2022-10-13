@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-//import Searched from "./SearchForm";
 import axios from "axios";
 import RecipeList from "./RecipeList";
 
 function GetRecipe() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  // const [query, setQuery] = useState([]);
-
-  // useEffect(() => {
-  //   SearchIngredient();
-  // }, [query]);
 
   const SearchIngredient = async () => {
     try {
@@ -34,7 +28,7 @@ function GetRecipe() {
   const doSearch = (e) => {
     e.preventDefault();
     SearchIngredient();
-    // setQuery(search); //query?
+
     setSearch("");
   };
 
@@ -42,7 +36,7 @@ function GetRecipe() {
     <div>
       <form onSubmit={doSearch}>
         <div>
-          <label htmlFor="name">Search for item</label>
+          <label htmlFor="name">Search for Ingredient</label>
           <TextField
             id="outlined-basic"
             label="Enter an Item"
@@ -50,16 +44,19 @@ function GetRecipe() {
             type="text"
             name="name"
             onChange={updateSearch}
-            value={search} //query?
+            value={search}
           />
         </div>
-        <button onClick={doSearch}>Search</button>
+        <Button variant="outlined" onClick={doSearch} className="Button">
+          Search
+        </Button>
       </form>
+      {/* {recipes.length === 0 ? ( */}
       <RecipeList recipes={recipes} />
+      {/* // ) : ( // <p className="lead">Sorry, no results were found!</p>
+      // )} */}
     </div>
   );
 }
 
 export default GetRecipe;
-
-// `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=butter`

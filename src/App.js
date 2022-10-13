@@ -7,6 +7,8 @@ import Search from "./SearchForm";
 import SearchIngredient from "./SearchIngredient";
 import SearchEquipment from "./SearchEquipment";
 import SearchCuisine from "./SearchCuisine";
+import Recipe from "./Recipe";
+import image from "./Images/pexels-lukas-616401.jpg";
 console.log(process.env.REACT_APP_API_KEY);
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
+          <img src={image} className="Homepage-background" alt="background" />
           <BrowserRouter>
             <NavBar />
             <Switch>
@@ -28,6 +31,9 @@ function App() {
               </Route>
               <Route exact path="/SearchCuisine">
                 <SearchCuisine />
+              </Route>
+              <Route exact path="/recipe/:id">
+                <Recipe />
               </Route>
             </Switch>
           </BrowserRouter>

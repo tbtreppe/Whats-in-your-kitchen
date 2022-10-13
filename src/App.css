@@ -3,15 +3,22 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background: url("/Images/pexels-lukas-616401.jpg") no-repeat; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  position: relative;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Homepage-background {
+  height: auto;
+  max-width: 100%;
+  opacity: 0.6;
 }

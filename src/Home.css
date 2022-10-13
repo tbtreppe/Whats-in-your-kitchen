@@ -1,0 +1,9 @@
+.Home {
+  height: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}

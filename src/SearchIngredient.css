@@ -1,0 +1,18 @@
+.GetRecipe input:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+.Form {
+  padding: 20px;
+}
+
+.Button {
+  padding: 20px;
+  margin: 20px;
+}
+
+.TextField {
+  padding: 20px;
+  margin: 20px;
+}
