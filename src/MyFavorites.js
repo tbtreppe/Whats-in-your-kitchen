@@ -8,6 +8,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 function FavoriteList(props) {
   const { recipes } = props;
+  console.log("🚀 ~ file: MyFavorites.js ~ line 11 ~ FavoriteList ~ recipes", recipes)
 
   return (
     <ImageList sx={{ width: 900 }}>

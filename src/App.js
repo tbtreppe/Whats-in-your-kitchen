@@ -41,6 +41,7 @@ function App() {
   };
   return (
     <div className="App">
+      {/* <header className="App-header" style={{backgroundImage:`url(${image})`, backgroundSize: 'cover'}}> */}
       <header className="App-header">
         <div>
           <img src={image} className="Homepage-background" alt="background" />

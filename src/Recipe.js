@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
@@ -24,6 +24,11 @@ const Recipe = () => {
     getRecipe();
   }, []);
 
+  const saveRecipe = () => {
+    console.log("SAVE RECIPE TO LOCAL STORAGE")
+    // redirect to /MyFavorites
+  }
+
   return (
     <div>
       <h2>{details.title}</h2>
@@ -33,9 +38,10 @@ const Recipe = () => {
       <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
       <a href={details.sourceUrl}>Go to Recipe website</a>
       <IconButton
-        href={`/MyFavorites`}
+        // href={`/MyFavorites`}
         color="primary"
         aria-label="add to shopping cart"
+        onClick={saveRecipe}
       >
         <AddShoppingCartIcon />
       </IconButton>
