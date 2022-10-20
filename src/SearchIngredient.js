@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import RecipeList from "./RecipeList";
+import "./SearchIngredient.css";
 
-function GetRecipe() {
+function GetRecipeByIngredient() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -59,4 +60,4 @@ function GetRecipe() {
   );
 }
 
-export default GetRecipe;
+export default GetRecipeByIngredient;

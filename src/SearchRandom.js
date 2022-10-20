@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import RecipeList from "./RecipeList";
 
-const SearchCuisine = () => {
+function GetRandomRecipe() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const params = useParams();
 
-  const getCuisine = async () => {
+  const SearchIngredient = async () => {
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=2d3d04ef784549cb818fdb563237f29c&cuisine=${params.type}`
+        `https://api.spoonacular.com/recipes/random?apiKey=2d3d04ef784549cb818fdb563237f29c&tags=${search}`
       );
       const data = response.data;
       console.log(data);
@@ -29,7 +27,7 @@ const SearchCuisine = () => {
 
   const doSearch = (e) => {
     e.preventDefault();
-    getCuisine();
+    SearchIngredient();
 
     setSearch("");
   };
@@ -38,7 +36,7 @@ const SearchCuisine = () => {
     <div>
       <form onSubmit={doSearch}>
         <div>
-          <label htmlFor="name">Search by Cuisine</label>
+          <label htmlFor="name">What are you in the mood for?</label>
           <TextField
             id="outlined-basic"
             label="Enter an Item"
@@ -53,9 +51,12 @@ const SearchCuisine = () => {
           Search
         </Button>
       </form>
+      {/* {recipes.length === 0 ? ( */}
       <RecipeList recipes={recipes} />
+      {/* // ) : ( // <p className="lead">Sorry, no results were found!</p>
+      // )} */}
     </div>
   );
-};
+}
 
-export default SearchCuisine;
+export default GetRandomRecipe;

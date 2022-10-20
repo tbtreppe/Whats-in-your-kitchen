@@ -7,7 +7,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const drawerWidth = 240;
@@ -36,17 +36,32 @@ export default function ClippedDrawer() {
         <List>
           <ListItem disablePadding>
             <ListItemButton>
+              <Link to="/Signup">Sign Up</Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to="/Login">Login</Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
               <Link to="/SearchIngredient">Search By Ingredient</Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
-              <Link to="/SearchEquipment">Search By Equipment</Link>
+              <Link to="/SearchRandom">Popular Recipes</Link>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
               <Link to="/SearchCuisine">Search By Cuisine</Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to="/MyFavorites">My Favorites</Link>
             </ListItemButton>
           </ListItem>
         </List>
