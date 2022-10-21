@@ -15,7 +15,10 @@ function GetRandomRecipe() {
       );
       const data = response.data;
       console.log(data);
-      setRecipes(data);
+    //   {
+    //     "recipes": []
+    // }
+      setRecipes(data.recipes);
     } catch (err) {
       console.log(err, "logged");
     }

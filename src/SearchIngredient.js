@@ -15,7 +15,9 @@ function GetRecipeByIngredient() {
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=${search}`
       );
       const data = response.data;
-      console.log(data);
+      console.log("🚀 ~ file: SearchIngredient.js ~ line 18 ~ SearchIngredient ~ data", data)
+      // console.log(data);
+      // is an array of recipes []
       setRecipes(data);
     } catch (err) {
       console.log(err, "logged");

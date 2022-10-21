@@ -18,7 +18,11 @@
 }
 
 .Homepage-background {
+  position: absolute;
+  top: 0;
+  left: 240px;
   height: auto;
   max-width: 100%;
   opacity: 0.6;
+  z-index: -1;
 }

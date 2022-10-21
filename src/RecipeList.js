@@ -8,7 +8,9 @@ import Icon from "@mui/material/Icon";
 
 function RecipeList(props) {
   const { recipes } = props;
+  console.log("🚀 ~ file: RecipeList.js ~ line 11 ~ RecipeList ~ recipes", recipes)
   const [add, setAdd] = useState("");
+  
 
   // if (login === true) {
   return (
