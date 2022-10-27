@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation, useParams } from "react-router-dom";
-import IconButton from "@mui/material/IconButton";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useParams, Redirect } from "react-router-dom";
+import Fab from "@mui/material/Fab";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Recipe = () => {
   const [details, setDetails] = useState({});
   const params = useParams();
+  const [storedRecipe, setStoredRecipe] = useState(() =>
+    JSON.parse(localStorage.getItem("favorites") || "[]")
+  );
+  const isFavorited = storedRecipe.includes(details);
+  console.log("$$$$$$$$$$$$$$$$", isFavorited);
 
   const getRecipe = async () => {
     try {
@@ -25,9 +31,21 @@ const Recipe = () => {
   }, []);
 
   const saveRecipe = () => {
-    console.log("SAVE RECIPE TO LOCAL STORAGE")
+    const newFavoriteRecipe = [...storedRecipe, details];
+    setStoredRecipe(newFavoriteRecipe);
+    localStorage.setItem("favorites", JSON.stringify(newFavoriteRecipe));
+    console.log("***************", details);
+    console.log("###########", newFavoriteRecipe);
+    // console.log("SAVE RECIPE TO LOCAL STORAGE");
+    // localStorage.setItem("recipe", JSON.stringify(details));
+    //<Redirect to="/MyFavorites" />;
     // redirect to /MyFavorites
-  }
+  };
+
+  const deleteFromFavorites = () => {
+    const removeRecipe = JSON.parse(localStorage.getItem("favorites", details));
+    setStoredRecipe([removeRecipe]);
+  };
 
   return (
     <div>
@@ -37,14 +55,15 @@ const Recipe = () => {
       <h5 dangerouslySetInnerHTML={{ __html: details.dishTypes }}></h5>
       <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
       <a href={details.sourceUrl}>Go to Recipe website</a>
-      <IconButton
-        // href={`/MyFavorites`}
-        color="primary"
-        aria-label="add to shopping cart"
-        onClick={saveRecipe}
-      >
-        <AddShoppingCartIcon />
-      </IconButton>
+      {
+        <Fab size="small" aria-label="like">
+          {isFavorited ? (
+            <DeleteIcon variant="outlined" onClick={deleteFromFavorites} />
+          ) : (
+            <FavoriteIcon href={"/MyFavorites"} onClick={saveRecipe} />
+          )}
+        </Fab>
+      }
     </div>
   );
 };

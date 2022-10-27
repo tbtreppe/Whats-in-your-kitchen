@@ -11,13 +11,13 @@ function GetRandomRecipe() {
   const SearchIngredient = async () => {
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/random?apiKey=2d3d04ef784549cb818fdb563237f29c&tags=${search}`
+        `https://api.spoonacular.com/recipes/random?apiKey=2d3d04ef784549cb818fdb563237f29c&tags=${search}&number=10`
       );
       const data = response.data;
       console.log(data);
-    //   {
-    //     "recipes": []
-    // }
+      //   {
+      //     "recipes": []
+      // }
       setRecipes(data.recipes);
     } catch (err) {
       console.log(err, "logged");

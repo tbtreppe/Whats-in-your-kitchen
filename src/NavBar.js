@@ -34,7 +34,7 @@ export default function ClippedDrawer() {
         <Divider />
 
         <List>
-          <ListItem disablePadding>
+          {/* <ListItem disablePadding>
             <ListItemButton>
               <Link to="/Signup">Sign Up</Link>
             </ListItemButton>
@@ -43,7 +43,7 @@ export default function ClippedDrawer() {
             <ListItemButton>
               <Link to="/Login">Login</Link>
             </ListItemButton>
-          </ListItem>
+          </ListItem> */}
           <ListItem disablePadding>
             <ListItemButton>
               <Link to="/SearchIngredient">Search By Ingredient</Link>

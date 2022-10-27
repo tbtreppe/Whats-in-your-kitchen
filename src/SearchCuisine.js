@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
@@ -8,16 +7,15 @@ import RecipeList from "./RecipeList";
 const SearchCuisine = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const params = useParams();
 
   const getCuisine = async () => {
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=2d3d04ef784549cb818fdb563237f29c&cuisine=${params.type}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=2d3d04ef784549cb818fdb563237f29c&cuisine=${search}`
       );
       const data = response.data;
       console.log(data);
-      setRecipes(data);
+      setRecipes(data.results);
     } catch (err) {
       console.log(err, "logged");
     }

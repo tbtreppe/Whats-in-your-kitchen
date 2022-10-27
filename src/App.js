@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -8,37 +8,9 @@ import SearchRandom from "./SearchRandom";
 import SearchCuisine from "./SearchCuisine";
 import Recipe from "./Recipe";
 import MyFavorites from "./MyFavorites";
-import Signup from "./user/Signup";
-import Login from "./user/Login";
-import UserContext from "./user/UserContext";
 import image from "./Images/pexels-lukas-616401.jpg";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-
-  async function signup(signupData) {
-    try {
-      let logged = await login(signupData);
-      setCurrentUser(logged);
-      return { success: true };
-    } catch (errors) {
-      console.log("login failed", errors);
-    }
-  }
-
-  async function login(loginData) {
-    try {
-      let logged = await login(loginData);
-      setCurrentUser(logged);
-      return { success: true };
-    } catch (errors) {
-      console.log("login failed", errors);
-    }
-  }
-  const logout = () => {
-    setCurrentUser(null);
-    console.log("logout");
-  };
   return (
     <div className="App">
       {/* <header className="App-header" style={{backgroundImage:`url(${image})`, backgroundSize: 'cover'}}> */}
@@ -66,18 +38,6 @@ function App() {
               <Route exact path="/MyFavorites">
                 <MyFavorites />
               </Route>
-              <Route exact path="/Signup">
-                <Signup />
-              </Route>
-              <Route exact path="/Login">
-                <Login />
-              </Route>
-              <UserContext.Provider value={currentUser}>
-                <div>
-                  <NavBar logout={logout} />
-                  <Route login={login} signup={signup} />
-                </div>
-              </UserContext.Provider>
             </Switch>
           </BrowserRouter>
         </div>
