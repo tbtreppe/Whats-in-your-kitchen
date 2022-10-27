@@ -31,11 +31,17 @@ const Recipe = () => {
   }, []);
 
   const saveRecipe = () => {
-    const newFavoriteRecipe = [...storedRecipe, details];
-    setStoredRecipe(newFavoriteRecipe);
-    localStorage.setItem("favorites", JSON.stringify(newFavoriteRecipe));
-    console.log("***************", details);
-    console.log("###########", newFavoriteRecipe);
+    if (!isFavorited) {
+      const newFavoriteRecipe = [...storedRecipe, details];
+      setStoredRecipe(newFavoriteRecipe);
+      localStorage.setItem("favorites", JSON.stringify(newFavoriteRecipe));
+      console.log("***************", details);
+      console.log("###########", newFavoriteRecipe);
+    } else {
+      console.log("added already");
+      return <alert>already added!</alert>;
+    }
+
     // console.log("SAVE RECIPE TO LOCAL STORAGE");
     // localStorage.setItem("recipe", JSON.stringify(details));
     //<Redirect to="/MyFavorites" />;

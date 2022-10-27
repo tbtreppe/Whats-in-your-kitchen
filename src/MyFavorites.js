@@ -12,6 +12,9 @@ function FavoriteList() {
   );
 
   const getFavorites = JSON.parse(localStorage.getItem("favorites"));
+  if (getFavorites === null) {
+    return <h1>No recipes saved</h1>;
+  }
 
   return (
     <div>
