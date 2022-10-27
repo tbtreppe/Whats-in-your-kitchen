@@ -9,10 +9,10 @@ const Recipe = () => {
   const [details, setDetails] = useState({});
   const params = useParams();
   const [storedRecipe, setStoredRecipe] = useState(() =>
-    JSON.parse(localStorage.getItem("favorites") || "[]")
+    JSON.parse(localStorage.getItem("favorites") || "{}")
   );
-  const isFavorited = storedRecipe.includes(details);
-  console.log("$$$$$$$$$$$$$$$$", isFavorited);
+  // const isFavorited = storedRecipe.includes(details);
+  // console.log("$$$$$$$$$$$$$$$$", isFavorited);
 
   const getRecipe = async () => {
     try {
@@ -31,8 +31,8 @@ const Recipe = () => {
   }, []);
 
   const saveRecipe = () => {
-    if (!isFavorited) {
-      const newFavoriteRecipe = [...storedRecipe, details];
+    if (!storedRecipe[details.id]) {
+      const newFavoriteRecipe = {...storedRecipe, [details.id]: details};
       setStoredRecipe(newFavoriteRecipe);
       localStorage.setItem("favorites", JSON.stringify(newFavoriteRecipe));
       console.log("***************", details);
@@ -63,7 +63,7 @@ const Recipe = () => {
       <a href={details.sourceUrl}>Go to Recipe website</a>
       {
         <Fab size="small" aria-label="like">
-          {isFavorited ? (
+          {storedRecipe[details.id] ? (
             <DeleteIcon variant="outlined" onClick={deleteFromFavorites} />
           ) : (
             <FavoriteIcon href={"/MyFavorites"} onClick={saveRecipe} />

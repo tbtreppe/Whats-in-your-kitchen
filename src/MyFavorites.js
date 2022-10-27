@@ -20,7 +20,7 @@ function FavoriteList() {
     <div>
       <h1>My Favorite Recipes</h1>
       <ImageList sx={{ width: 900 }}>
-        {getFavorites.map(({ title, id, image }) => (
+        {Object.entries(getFavorites).map(([_, { title, id, image }]) => (
           <ImageListItem key={image}>
             <img
               src={`${image}?w=248&fit=crop&auto=format`}
