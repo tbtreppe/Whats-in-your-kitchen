@@ -29,15 +29,19 @@ Application will be hosted on Netlify
 
 ##### Search by Ingredient
 
-- Users are able to input an ingredient into a form and after clicking submit, will see recipes that include that ingredient. User has the option to favorite the recipe through the icon and local storage.
+- Users are able to input an ingredient into a form and after clicking submit, will see a list of recipes that include that ingredient. The user can click on any recipe to see more information and click on the "Go to website" link to see the full recipe webpage with ingredients and instructions. User has the option to favorite the recipe (put in local storage).
 
 ##### Search by Cuisine
 
-- Users are able to input a cuisine into the form and after clicking submit, will see recipes that pertain to the submitted cuisine. User has the option to favorite the recipe through the icon and local storage.
+- Users are able to input a cuisine into the form and after clicking submit, will see a list of recipes that pertain to the submitted cuisine. The user can click on any recipe to see more information and click on the "Go to website" link to see the full recipe webpage with ingredients and instructions. User has the option to favorite the recipe (put in local storage).
 
 ##### Search Randomly
 
-- Users can search for whatever they want- whether its a food, an ingredient, a cuisine etc into the form. After clicking submit, they will see recipes that pertain to what they searched for. User has the option to favorite the recipe through the icon and local storage.
+- Users can search for whatever they want- whether its a food, an ingredient, a cuisine etc into the form. After clicking submit, they will see a list of recipes that pertain to what they searched for. The user can click on any recipe to see more information and click on the "Go to website" link to see the full recipe webpage with ingredients and instructions. User has the option to favorite the recipe (put in local storage).
+
+##### My Favorites
+
+- Users can review the recipes they have favorited and choose to unfavorite if they want (remove from local storage).
 
 #### Stretch goals
 
