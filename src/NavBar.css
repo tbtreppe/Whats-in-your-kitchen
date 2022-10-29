@@ -7,3 +7,38 @@
   font-weight: bold;
   color: black;
 }
+
+.Tabs {
+  position: absolute;
+  top: 0;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.Ingredient {
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.Random {
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.Cuisine {
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.Favorites {
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: inherit;
+}

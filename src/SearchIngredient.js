@@ -15,9 +15,11 @@ function GetRecipeByIngredient() {
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=2d3d04ef784549cb818fdb563237f29c&ingredients=${search}`
       );
       const data = response.data;
-      console.log("🚀 ~ file: SearchIngredient.js ~ line 18 ~ SearchIngredient ~ data", data)
-      // console.log(data);
-      // is an array of recipes []
+      console.log(
+        "🚀 ~ file: SearchIngredient.js ~ line 18 ~ SearchIngredient ~ data",
+        data
+      );
+
       setRecipes(data);
     } catch (err) {
       console.log(err, "logged");
@@ -37,9 +39,11 @@ function GetRecipeByIngredient() {
 
   return (
     <div>
-      <form onSubmit={doSearch}>
+      <form onSubmit={doSearch} className="Form">
         <div>
-          <label htmlFor="name">Search for Ingredient</label>
+          <label htmlFor="name" className="Label">
+            Search for Ingredient
+          </label>
           <TextField
             id="outlined-basic"
             label="Enter an Item"
@@ -54,10 +58,8 @@ function GetRecipeByIngredient() {
           Search
         </Button>
       </form>
-      {/* {recipes.length === 0 ? ( */}
+
       <RecipeList recipes={recipes} />
-      {/* // ) : ( // <p className="lead">Sorry, no results were found!</p>
-      // )} */}
     </div>
   );
 }

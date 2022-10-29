@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Fab from "@mui/material/Fab";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "./Recipe.css";
 
 const Recipe = () => {
   const [details, setDetails] = useState({});
@@ -11,8 +12,6 @@ const Recipe = () => {
   const [storedRecipe, setStoredRecipe] = useState(() =>
     JSON.parse(localStorage.getItem("favorites") || "{}")
   );
-  // const isFavorited = storedRecipe.includes(details);
-  // console.log("$$$$$$$$$$$$$$$$", isFavorited);
 
   const getRecipe = async () => {
     try {
@@ -32,7 +31,7 @@ const Recipe = () => {
 
   const saveRecipe = () => {
     if (!storedRecipe[details.id]) {
-      const newFavoriteRecipe = {...storedRecipe, [details.id]: details};
+      const newFavoriteRecipe = { ...storedRecipe, [details.id]: details };
       setStoredRecipe(newFavoriteRecipe);
       localStorage.setItem("favorites", JSON.stringify(newFavoriteRecipe));
       console.log("***************", details);
@@ -41,11 +40,6 @@ const Recipe = () => {
       console.log("added already");
       return <alert>already added!</alert>;
     }
-
-    // console.log("SAVE RECIPE TO LOCAL STORAGE");
-    // localStorage.setItem("recipe", JSON.stringify(details));
-    //<Redirect to="/MyFavorites" />;
-    // redirect to /MyFavorites
   };
 
   const deleteFromFavorites = () => {
@@ -54,7 +48,7 @@ const Recipe = () => {
   };
 
   return (
-    <div>
+    <div className="RecipeInfo">
       <h2>{details.title}</h2>
       <img src={details.image} alt={details.title} />
       <h5 dangerouslySetInnerHTML={{ __html: details.diets }}></h5>
@@ -73,5 +67,4 @@ const Recipe = () => {
     </div>
   );
 };
-
 export default Recipe;

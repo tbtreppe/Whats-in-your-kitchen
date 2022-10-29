@@ -1,71 +1,40 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
-const drawerWidth = 240;
+export default function ColorTabs() {
+  const [value, setValue] = React.useState("one");
 
-export default function ClippedDrawer() {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      ></AppBar>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
+    <Box sx={{ width: "100%" }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        textColor="secondary"
+        indicatorColor="secondary"
+        aria-label="secondary tabs example"
+        className="Tabs"
       >
-        <Divider />
-
-        <List>
-          {/* <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="/Signup">Sign Up</Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="/Login">Login</Link>
-            </ListItemButton>
-          </ListItem> */}
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="/SearchIngredient">Search By Ingredient</Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="/SearchRandom">Popular Recipes</Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="/SearchCuisine">Search By Cuisine</Link>
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <Link to="/MyFavorites">My Favorites</Link>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </Drawer>
+        <Link to="/SearchIngredient" className="Ingredient">
+          Search By Ingredient
+        </Link>
+        <Link to="/SearchRandom" className="Random">
+          Popular Recipes
+        </Link>
+        <Link to="/SearchCuisine" className="Cuisine">
+          Search By Cuisine
+        </Link>
+        <Link to="/MyFavorites" className="Favorites">
+          My Favorites
+        </Link>
+      </Tabs>
     </Box>
   );
 }

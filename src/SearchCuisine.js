@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import RecipeList from "./RecipeList";
+import "./SearchCuisine.css";
 
 const SearchCuisine = () => {
   const [recipes, setRecipes] = useState([]);
@@ -34,9 +35,11 @@ const SearchCuisine = () => {
 
   return (
     <div>
-      <form onSubmit={doSearch}>
+      <form onSubmit={doSearch} className="Form">
         <div>
-          <label htmlFor="name">Search by Cuisine</label>
+          <label htmlFor="name" className="Label">
+            Search by Cuisine
+          </label>
           <TextField
             id="outlined-basic"
             label="Enter an Item"

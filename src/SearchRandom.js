@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import RecipeList from "./RecipeList";
+import "./SearchRandom.css";
 
 function GetRandomRecipe() {
   const [recipes, setRecipes] = useState([]);
@@ -37,9 +38,11 @@ function GetRandomRecipe() {
 
   return (
     <div>
-      <form onSubmit={doSearch}>
+      <form onSubmit={doSearch} className="Form">
         <div>
-          <label htmlFor="name">What are you in the mood for?</label>
+          <label htmlFor="name" className="Label">
+            What are you in the mood for?
+          </label>
           <TextField
             id="outlined-basic"
             label="Enter an Item"
