@@ -13,7 +13,7 @@ export default function ColorTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", display: "flex", justifyContent: "center", flex: '0 1 auto' }}>
       <Tabs
         value={value}
         onChange={handleChange}
