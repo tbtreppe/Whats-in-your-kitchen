@@ -13,12 +13,11 @@ import image from "./Images/pexels-lukas-616401.jpg";
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header" style={{backgroundImage:`url(${image})`, backgroundSize: 'cover'}}> */}
-      <header className="App-header">
-        <div>
-          <img src={image} className="Homepage-background" alt="background" />
-          <BrowserRouter>
-            <NavBar />
+      <img src={image} className="Homepage-background" alt="background" />
+      <BrowserRouter>
+        <div style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+          <NavBar />
+          <main style={{flex: '1 1 auto', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -39,9 +38,10 @@ function App() {
                 <MyFavorites />
               </Route>
             </Switch>
-          </BrowserRouter>
+          </main>
         </div>
-      </header>
+      </BrowserRouter>
+      {/* </header> */}
     </div>
   );
 }

@@ -9,10 +9,9 @@
 }
 
 .Tabs {
-  position: absolute;
-  top: 0;
   margin: 20px;
   font-weight: bold;
+  flex: 0 1 auto;
 }
 
 .Ingredient {
