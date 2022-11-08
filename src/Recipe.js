@@ -12,7 +12,7 @@ const Recipe = () => {
   const [storedRecipe, setStoredRecipe] = useState(() =>
     JSON.parse(localStorage.getItem("favorites") || "{}")
   );
-
+  //this is an object
   const getRecipe = async () => {
     try {
       const response = await axios.get(
@@ -43,8 +43,11 @@ const Recipe = () => {
   };
 
   const deleteFromFavorites = () => {
-    const removeRecipe = JSON.parse(localStorage.getItem("favorites", details));
+    const removeRecipe = JSON.parse(
+      localStorage.getItem("favorites", details.id)
+    );
     setStoredRecipe([removeRecipe]);
+    console.log("+++++++++++++++++", removeRecipe);
   };
 
   return (
@@ -58,7 +61,10 @@ const Recipe = () => {
       {
         <Fab size="small" aria-label="like">
           {storedRecipe[details.id] ? (
-            <DeleteIcon variant="outlined" onClick={deleteFromFavorites} />
+            <DeleteIcon
+              variant="outlined"
+              onClick={deleteFromFavorites(details.id)}
+            />
           ) : (
             <FavoriteIcon href={"/MyFavorites"} onClick={saveRecipe} />
           )}

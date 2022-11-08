@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
@@ -15,7 +15,7 @@ function FavoriteList() {
   if (getFavorites === null) {
     return <h1>No recipes saved</h1>;
   }
-
+  //object.entries turns object into an array
   return (
     <div>
       <h1>My Favorite Recipes</h1>
