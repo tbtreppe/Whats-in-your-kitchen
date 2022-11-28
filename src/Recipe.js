@@ -12,7 +12,7 @@ const Recipe = () => {
   const [storedRecipe, setStoredRecipe] = useState(() =>
     JSON.parse(localStorage.getItem("favorites") || "{}")
   );
-  //this is an object
+
   const getRecipe = async () => {
     try {
       const response = await axios.get(
@@ -43,11 +43,43 @@ const Recipe = () => {
   };
 
   const deleteFromFavorites = () => {
-    const removeRecipe = JSON.parse(
-      localStorage.getItem("favorites", details.id)
-    );
-    setStoredRecipe([removeRecipe]);
-    console.log("+++++++++++++++++", removeRecipe);
+    let removeRecipe = { [details.id]: details };
+    if (storedRecipe[removeRecipe]) {
+      localStorage.removeItem(removeRecipe);
+    }
+
+    console.log("+++++++++++++++++++", removeRecipe);
+    // let removeRecipe = JSON.parse(
+    //   localStorage.getItem("favorites", storedRecipe)
+    // );
+    // for (let i = 0; i < removeRecipe.length; i++) {
+    //   if (details.id == i) {
+    //     removeRecipe.splice(i, 1);
+    //   }
+    // }
+    // removeRecipe = JSON.stringify(removeRecipe);
+    // localStorage.setItem("favorites", removeRecipe);
+
+    // const removeRecipe = JSON.parse(
+    //   localStorage.getItem("favorites", details.id)
+    // );
+    // if (removeRecipe) {
+    //   localStorage.removeItem(removeRecipe);
+    //   const newFavoriteList = { ...storedRecipe, [details.id]: details };
+    //   setStoredRecipe(newFavoriteList);
+    //   localStorage.setItem("favorites", JSON.stringify(newFavoriteList));
+    // }
+
+    // if (storedRecipe[details.id]) {
+    //   const removeRecipe = { [details.id]: details };
+    //   localStorage.removeItem(removeRecipe);
+    // }
+    //its getting removeRecipe as details.id but is not removing it.
+    // const removeRecipe = JSON.parse(
+    //   localStorage.getItem("favorites", details.id)
+    // );
+    // setStoredRecipe([removeRecipe]);
+    // console.log("+++++++++++++++++", removeRecipe);
   };
 
   return (
@@ -61,10 +93,7 @@ const Recipe = () => {
       {
         <Fab size="small" aria-label="like">
           {storedRecipe[details.id] ? (
-            <DeleteIcon
-              variant="outlined"
-              onClick={deleteFromFavorites(details.id)}
-            />
+            <DeleteIcon variant="outlined" onClick={deleteFromFavorites} />
           ) : (
             <FavoriteIcon href={"/MyFavorites"} onClick={saveRecipe} />
           )}

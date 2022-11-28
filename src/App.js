@@ -8,16 +8,25 @@ import SearchRandom from "./SearchRandom";
 import SearchCuisine from "./SearchCuisine";
 import Recipe from "./Recipe";
 import MyFavorites from "./MyFavorites";
-import image from "./Images/pexels-lukas-616401.jpg";
+import image from "./Images/pexels-tima-miroshnichenko-4805772 (1).jpg";
 
 function App() {
   return (
     <div className="App">
       <img src={image} className="Homepage-background" alt="background" />
       <BrowserRouter>
-        <div style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+        <div
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+        >
           <NavBar />
-          <main style={{flex: '1 1 auto', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <main
+            style={{
+              flex: "1 1 auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Switch>
               <Route exact path="/">
                 <Home />
