@@ -43,43 +43,14 @@ const Recipe = () => {
   };
 
   const deleteFromFavorites = () => {
-    let removeRecipe = { [details.id]: details };
-    if (storedRecipe[removeRecipe]) {
-      localStorage.removeItem(removeRecipe);
+    const recipeIDToDelete = details.id;
+    const favoritesRaw = localStorage.getItem("favorites");
+    const favorites = JSON.parse(favoritesRaw);
+    if (favorites[recipeIDToDelete]) {
+      delete favorites[recipeIDToDelete];
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setStoredRecipe(favorites);
     }
-
-    console.log("+++++++++++++++++++", removeRecipe);
-    // let removeRecipe = JSON.parse(
-    //   localStorage.getItem("favorites", storedRecipe)
-    // );
-    // for (let i = 0; i < removeRecipe.length; i++) {
-    //   if (details.id == i) {
-    //     removeRecipe.splice(i, 1);
-    //   }
-    // }
-    // removeRecipe = JSON.stringify(removeRecipe);
-    // localStorage.setItem("favorites", removeRecipe);
-
-    // const removeRecipe = JSON.parse(
-    //   localStorage.getItem("favorites", details.id)
-    // );
-    // if (removeRecipe) {
-    //   localStorage.removeItem(removeRecipe);
-    //   const newFavoriteList = { ...storedRecipe, [details.id]: details };
-    //   setStoredRecipe(newFavoriteList);
-    //   localStorage.setItem("favorites", JSON.stringify(newFavoriteList));
-    // }
-
-    // if (storedRecipe[details.id]) {
-    //   const removeRecipe = { [details.id]: details };
-    //   localStorage.removeItem(removeRecipe);
-    // }
-    //its getting removeRecipe as details.id but is not removing it.
-    // const removeRecipe = JSON.parse(
-    //   localStorage.getItem("favorites", details.id)
-    // );
-    // setStoredRecipe([removeRecipe]);
-    // console.log("+++++++++++++++++", removeRecipe);
   };
 
   return (
