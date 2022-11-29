@@ -43,12 +43,26 @@ const Recipe = () => {
   };
 
   const deleteFromFavorites = () => {
-    let removeRecipe = { [details.id]: details };
-    if (storedRecipe[removeRecipe]) {
-      localStorage.removeItem(removeRecipe);
+    /*   CANDY'S NOTES
+      Please check out the examples in the documentation for using removeItem
+      https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem
+      It removes a key from the storage
+      And right now we're saving everything under the key "favorites"
+      So we're not suppose to use removeItem, but actually just load the data from localStorage and then alternate the data
+      And save it back to localStorage
+    */
+    const recipeIDToDelete = details.id;
+    const favoritesRaw = localStorage.getItem("favorites");
+    const favorites = JSON.parse(favoritesRaw);
+    if (favorites[recipeIDToDelete]) {
+      delete favorites[recipeIDToDelete];
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setStoredRecipe(favorites)
     }
-
-    console.log("+++++++++++++++++++", removeRecipe);
+    // let removeRecipe = { [details.id]: details };
+    // if (storedRecipe[removeRecipe]) {
+    //   localStorage.removeItem(removeRecipe);
+    // }
     // let removeRecipe = JSON.parse(
     //   localStorage.getItem("favorites", storedRecipe)
     // );
