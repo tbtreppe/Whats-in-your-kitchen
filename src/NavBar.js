@@ -3,25 +3,24 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 
 export default function ColorTabs() {
-  const [value, setValue] = React.useState("Ingredient");
+  const [value, setValue] = React.useState("");
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: "100%", display: "flex", justifyContent: "center", flex: '0 1 auto' }}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        textColor="secondary"
-        indicatorColor="secondary"
-        aria-label="secondary tabs example"
-        className="Tabs"
-      >
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flex: "0 1 auto",
+      }}
+    >
+      <Tabs value={value} onChange={handleChange} className="Tabs">
         <Link to="/SearchIngredient" className="Ingredient" value="Ingredient">
           Search By Ingredient
         </Link>

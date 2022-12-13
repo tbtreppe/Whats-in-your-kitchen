@@ -4,6 +4,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
+import "./MyFavorites.css";
 
 function FavoriteList() {
   console.log(
@@ -23,12 +24,14 @@ function FavoriteList() {
         {Object.entries(getFavorites).map(([_, { title, id, image }]) => (
           <ImageListItem key={image}>
             <img
+              className="image"
               src={`${image}?w=248&fit=crop&auto=format`}
               srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={title}
               loading="lazy"
             />
             <ImageListItemBar
+              className="itemBar"
               title={title}
               actionIcon={
                 <IconButton

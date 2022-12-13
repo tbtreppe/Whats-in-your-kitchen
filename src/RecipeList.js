@@ -4,6 +4,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
+import "./RecipeList.css";
 
 function RecipeList(props) {
   const { recipes } = props;
@@ -18,12 +19,14 @@ function RecipeList(props) {
         {recipes.map(({ title, id, image }) => (
           <ImageListItem key={image}>
             <img
+              className="image"
               src={`${image}?w=248&fit=crop&auto=format`}
               srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={title}
               loading="lazy"
             />
             <ImageListItemBar
+              className="itemBar"
               title={title}
               actionIcon={
                 <IconButton

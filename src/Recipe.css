@@ -1,3 +1,27 @@
 .RecipeInfo {
-  padding: 50px;
+  padding: 20px;
+}
+
+.image {
+  border-radius: 20px;
+}
+
+.Button {
+  text-decoration: none;
+  color: white;
+  border-radius: 20px;
+  border: solid black;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.Button:hover {
+  color: lightslategrey;
+  border: solid lightslategrey;
+}
+.Url {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-family: Helvetica;
 }

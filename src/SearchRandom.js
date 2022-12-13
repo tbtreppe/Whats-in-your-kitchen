@@ -40,20 +40,20 @@ function GetRandomRecipe() {
     <div>
       <form onSubmit={doSearch} className="Form">
         <div>
-          <label htmlFor="name" className="Label">
-            What are you in the mood for?
-          </label>
           <TextField
-            id="outlined-basic"
-            label="Enter an Item"
-            variant="outlined"
+            fullWidth
+            label="fullWidth"
+            id="fullWidth"
+            helperText="What are you in the mood for"
+            label="Item"
+            variant="filled"
             type="text"
-            name="name"
             onChange={updateSearch}
             value={search}
           />
         </div>
-        <Button variant="outlined" onClick={doSearch} className="Button">
+        <br />
+        <Button variant="contained" onClick={doSearch} className="Button">
           Search
         </Button>
       </form>
